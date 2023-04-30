@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Timetrack.Co</title>
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <style>
+            a{
+                text-decoration: none;
+                color: black;
+            }
+            img{
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+            a:hover{
+                color: black;
+            }
+            h6{
+              color: white;
+            }
+            .links{
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+          }
+          .links:hover{
+            color: orange;
+          }
+          .icons{
+            color:white;
+          }
+          .icons:hover{
+            color: orange;
+          }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-md navbar-light bg-#2C3333 navback">
+            <a class="navbar-brand" href="/" style="color: black;margin-left: 3;font-size: 1rem;font-family: 'Kolker Brush', cursive;"><img src="T.png" alt="icon" height="50px" style="margin-left:40%;"> </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto" style="width:500px;">
+                    {% if user.is_authenticated %}
+                  <li class = "nav-item" style="margin-right: 10px;"><a class="nav-link" href="/"><b>Hello {{user.username}}!</b></a></li>
+                  <li class = "nav-item" style="margin-right: 10px;"><a class="nav-link" href="#"><b><i class="fa-solid fa-magnifying-glass"></i> Search</b></a></li>
+                  <li class = "nav-item"><a class="nav-link" href="extra/cart" ><b><i class="fa-regular fa-heart"></i> Your selection (<span class="addto">0</span>)</b></a></li><br>
+                  <li class = "nav-item" style="margin-right: 10px;"><a class="nav-link" href="accounts/logout"><b>Log Out</b></a></li>
+                  {% else %}
+                  <li class = "nav-item" style="margin-right: 10px;"><a class="nav-link" href="accounts/logins"><b><i class="fa-solid fa-right-to-bracket"></i> login</b></a></li>
+                  <li class = "nav-item" style="margin-right: 10px;"><a class="nav-link" href="accounts/signup"><b><i class="fa-regular fa-id-card"></i> Sign up</b></a></li>
+                  <li class = "nav-item" style="margin-right: 10px;"><a class="nav-link" href="#"><b><i class="fa-solid fa-magnifying-glass"></i> Search</b></a></li>
+                  <li class = "nav-item"><a class="nav-link" href="extra/cart" ><b><i class="fa-regular fa-heart"></i> Your selection (<span class="addto">0</span>)</b></a></li><br>
+                  {% endif %}
+                </ul>
+            </div>
+        </nav>
+        <section>
+            <div>
+                <div><img src="https://www.fastrack.in/wps/wcm/connect/fastrack/49bd3582-1093-4beb-915b-6367790db235/desktop/FD_Espot_smartfest_020323.jpg?MOD=AJPERES&CACHEID=ROOTWORKSPACE.Z18_90IA1H80OGS700Q8OKN8NF0004-49bd3582-1093-4beb-915b-6367790db235-desktop-oqxBK8s" style="width: 100%;"></div><br>
+                <div style="display: flex;">
+                    <div style="flex: 1;margin-left: 6%;">pick up at the store</div>
+                    <div style="flex: 1;">pick up at the store</div>
+                    <div style="flex: 1;">pick up at the store</div>
+                    <div style="flex: 1;">pick up at the store</div>
+                </div>
+            </div>
+        </section><br><br>
+        <h1 align="center">Here are the Fastrack Watches</h1><br><br>
+        <h2 align="center">New Arrivals.....</h2><br><br>
+        <section>
+          <div class="row row-cols-2 row-cols-md-4  g-4" style="padding-left: 20px;padding-right: 10px;">
+            <div class="col">
+              <a href="#"><div class="card h-100">
+                <img src="https://staticimg.titan.co.in/Fastrack/Catalog/3287NM01_1.jpg?pView=listing" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Silver wrap steel watch</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional....</p>
+                  <p class="card-text">Rs.1995</p>
+
+                  <button style="background-color:black;color:white;padding: 10px 121px;border:none;border-radius:5px;" class="add-cart">add to cart</button>
+
+                </div>
+              </div></a>
+            </div>
+            <div class="col">
+              <a href="#"><div class="card h-100">
+                <img src="https://staticimg.titan.co.in/Fastrack/Catalog/38077AP02_1.jpg?pView=listing" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Silver wrap steel watch</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional....</p>
+                  <p class="card-text">Rs.1995</p>
+
+                  <button style="background-color:black;color:white;padding: 10px 121px;border:none;border-radius:5px;" class="add-cart">add to cart</button>
+                </div>
+              </div></a>
+            </div>
+            <div class="col">
+                <a href="#"><div class="card h-100">
+                <img src="https://staticimg.titan.co.in/Fastrack/Catalog/38074AP01_1.jpg?pView=listing" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Silver wrap steel watch</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional....</p>
+                  <p class="card-text">Rs.1995</p>
+
+                  <button style="background-color:black;color:white;padding: 10px 121px;border:none;border-radius:5px;" class="add-cart">add to cart</button>
+                </div>
+              </div></a>
+            </div>
+            <div class="col">
+                <a href="#"><div class="card h-100">
+                <img src="https://staticimg.titan.co.in/Fastrack/Catalog/3147KM01_1.jpg?pView=listing" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Silver wrap steel watch</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional....</p>
+                  <p class="card-text">Rs.1995</p>
+
+                  <button style="background-color:black;color:white;padding: 10px 121px;border:none;border-radius:5px;" class="add-cart">add to cart</button>
+                </div>
+              </div></a>
+            </div>
+          </div><br><br>
+          <div class="row row-cols-2 row-cols-md-4  g-4" style="padding-left: 20px;padding-right: 20px;">
+            <div class="col">
+              <a href="#"><div class="card h-100">
+                <img src="https://staticimg.titan.co.in/Fastrack/Catalog/3277NM01_1.jpg?pView=listing" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Silver wrap steel watch</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional....</p>
+                  <p class="card-text">Rs.1996</p>
+
+                  <button style="background-color:black;color:white;padding: 10px 120px;border:none;border-radius:5px;" class="add-cart">add to cart</button>
+                </div>
+              </div></a>
+            </div>
+            <div class="col">
+              <a href="#"><div class="card h-100">
+                <img src="https://staticimg.titan.co.in/Fastrack/Catalog/3224NL01_1.jpg?pView=listing" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional....</p>
+                  <p class="card-text">Rs.1995</p>
+
+                  <button style="background-color:black;color:white;padding: 10px 120px;border:none;border-radius:5px;" class="add-cart">add to cart</button>
+                </div>
+              </div></a>
+            </div>
+            <div class="col">
+                <a href="#"><div class="card h-100">
+                <img src="https://staticimg.titan.co.in/Fastrack/Catalog/3250NM01_1.jpg?pView=listing" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional....</p>
+                  <p class="card-text">Rs.1995</p>
+
+                  <button style="background-color:black;color:white;padding: 10px 120px;border:none;border-radius:5px;" class="add-cart">add to cart</button>                </div>
+              </div></a>
+            </div>
+            <div class="col">
+                <a href="#"><div class="card h-100">
+                <img src="https://staticimg.titan.co.in/Fastrack/Catalog/3278SL01_1.jpg?pView=listing" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Silver wrap steel watch</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional....</p>
+                  <p class="card-text">Rs.1995</p>
+
+                  <button style="background-color:black;color:white;padding: 10px 120px;border:none;border-radius:5px;" class="add-cart">add to cart</button>
+                </div>
+              </div></a>
+            </div>
+          </div><br>
+        </section><br>
+        <img src="https://www.fastrack.in/wps/wcm/connect/fastrack/06bad936-b35f-4dc0-862c-0a529e72085f/desktop/1000x200.jpg?MOD=AJPERES&CACHEID=ROOTWORKSPACE.Z18_90IA1H80OGS700Q8OKN8NF0004-06bad936-b35f-4dc0-862c-0a529e72085f-desktop-nZ0KTZs" style="width: 100%;">
+        <br><br>
+        <section>
+            <div class="row row-cols-2 row-cols-md-4  g-4" style="padding-left: 20px;padding-right: 10px;">
+                <div class="col">
+                  <a href="#"><div class="card h-100">
+                    <img src="https://staticimg.titan.co.in/Fastrack/Catalog/3220SM01_1.jpg?pView=listing" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">silver wrap steel</h5>
+                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional....</p>
+                      <p class="card-text">Rs.2500</p>
+                  <button style="background-color:black;color:white;padding: 10px 121px;border:none;border-radius:5px;" class="add-cart">add to cart</button>
+                      
+                    </div>
+                  </div></a>
+                </div>
+                <div class="col">
+                  <a href="#"><div class="card h-100">
+                    <img src="https://staticimg.titan.co.in/Fastrack/Catalog/3120SL01_1.jpg?pView=listing" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">white dial brown leather watch</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional....</p>
+                        <p class="card-text">Rs.1750</p>
+                  <button style="background-color:black;color:white;padding: 10px 121px;border:none;border-radius:5px;" class="add-cart">add to cart</button>
+                      
+                    </div>
+                  </div></a>
+                </div>
+                <div class="col">
+                    <a href="#"><div class="card h-100">
+                    <img src="https://staticimg.titan.co.in/Fastrack/Catalog/38067PP03_1.jpg?pView=listing" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">street wear digital black watch</h5>
+                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional....</p>
+                        <p class="card-text">Rs.1750</p>
+                  <button style="background-color:black;color:white;padding: 10px 121px;border:none;border-radius:5px;" class="add-cart">add to cart</button>
+                    </div>
+                  </div></a>
+                </div>
+                <div class="col">
+                    <a href="#"><div class="card h-100">
+                    <img src="https://staticimg.titan.co.in/Fastrack/Catalog/3287SL01_1.jpg?pView=listing" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Tick Tock blue dial leather style</h5>
+                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional....</p>
+                      <p class="card-text">Rs.3195</p>
+                  <button style="background-color:black;color:white;padding: 10px 121px;border:none;border-radius:5px;" class="add-cart">add to cart</button>
+                      
+                    </div>
+                  </div></a>
+                </div>
+              </div><br><br>
+              <div class="row row-cols-2 row-cols-md-4  g-4" style="padding-left: 20px;padding-right: 20px;">
+                <div class="col">
+                  <a href="#"><div class="card h-100">
+                    <img src="https://staticimg.titan.co.in/Fastrack/Catalog/3215SM01_1.jpg?pView=listing" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">The curve skating Arena Inspired</h5>
+                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional....</p>
+                      <p class="card-text">Rs.3095</p>
+                  <button style="background-color:black;color:white;padding: 10px 120px;border:none;border-radius:5px;" class="add-cart">add to cart</button>
+                      
+                      
+                    </div>
+                  </div></a>
+                </div>
+                <div class="col">
+                  <a href="#"><div class="card h-100">
+                    <img src="https://staticimg.titan.co.in/Fastrack/Catalog/3220SL01_1.jpg?pView=listing" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Blue dial leather strap wtch</h5>
+                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional....</p>
+                      <p class="card-text">Rs.3000</p>
+                  <button style="background-color:black;color:white;padding: 10px 120px;border:none;border-radius:5px;" class="add-cart">add to cart</button>
+                      
+                    </div>
+                  </div></a>
+                </div>
+                <div class="col">
+                    <a href="#"><div class="card h-100">
+                    <img src="https://staticimg.titan.co.in/Fastrack/Catalog/3278SM02_1.jpg?pView=listing" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">stunners 3.0 silver dial metal strap</h5>
+                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional....</p>
+                      <p class="card-text">Rs.1925</p>
+                  <button style="background-color:black;color:white;padding: 10px 120px;border:none;border-radius:5px;" class="add-cart">add to cart</button>
+                      
+                    </div>
+                  </div></a>
+                </div>
+                <div class="col">
+                    <a href="#"><div class="card h-100">
+                    <img src="https://staticimg.titan.co.in/Fastrack/Catalog/3250NP01_1.jpg?pView=listing" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">gamify watch with greyish blue</h5>
+                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional....</p>
+                      <p class="card-text">Rs.2395</p>
+                  <button style="background-color:black;color:white;padding: 10px 120px;border:none;border-radius:5px;" class="add-cart">add to cart</button>
+                      
+                    </div>
+                  </div></a>
+                </div>
+              </div><br><br>
+              <div class="row row-cols-2 row-cols-md-4  g-4" style="padding-left: 20px;padding-right: 10px;">
+                <div class="col">
+                  <a href="#"><div class="card h-100">
+                    <img src="https://staticimg.titan.co.in/Fastrack/Catalog/3089NM03_1.jpg?pView=listing" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">black dial metal watch</h5>
+                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional....</p>
+                      <p class="card-text">Rs.2695</p>
+                  <button style="background-color:black;color:white;padding: 10px 121px;border:none;border-radius:5px;" class="add-cart">add to cart</button>
+                      
+                    </div>
+                  </div></a>
+                </div>
+                <div class="col">
+                  <a href="#"><div class="card h-100">
+                    <img src="https://staticimg.titan.co.in/Fastrack/Catalog/1474SM01_1.jpg?pView=listing" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">silver dial silver stainless metal</h5>
+                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional....</p>
+                      <p class="card-text">Rs.3795</p>
+                  <button style="background-color:black;color:white;padding: 10px 121px;border:none;border-radius:5px;" class="add-cart">add to cart</button>
+                      
+                    </div>
+                  </div></a>
+                </div>
+                <div class="col">
+                    <a href="#"><div class="card h-100">
+                    <img src="https://staticimg.titan.co.in/Fastrack/Catalog/6216WM01_1.jpg?pView=listing" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">ruffles pink dial stainless steel</h5>
+                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional....</p>
+                      <p class="card-text">Rs.3695</p>
+                  <button style="background-color:black;color:white;padding: 10px 121px;border:none;border-radius:5px;" class="add-cart">add to cart</button>
+                      
+                    </div>
+                  </div></a>
+                </div>
+                <div class="col">
+                    <a href="#"><div class="card h-100">
+                    <img src="https://staticimg.titan.co.in/Fastrack/Catalog/3247SL01_1.jpg?pView=listing" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">blue dial leather strap watch</h5>
+                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional....</p>
+                      <p class="card-text">Rs.1995</p>
+                  <button style="background-color:black;color:white;padding: 10px 121px;border:none;border-radius:5px;" class="add-cart">add to cart</button>
+                      
+                    </div>
+                  </div></a>
+                </div>
+              </div><br><br>
+              <div class="row row-cols-2 row-cols-md-4  g-4" style="padding-left: 20px;padding-right: 10px;">
+                <div class="col">
+                  <a href="#"><div class="card h-100">
+                    <img src="https://staticimg.titan.co.in/Fastrack/Catalog/38051SM03_1.jpg?pView=listing" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">fundamentals blue dial stainless </h5>
+                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional....</p>
+                      <p class="card-text">Rs.1695</p>
+                  <button style="background-color:black;color:white;padding: 10px 121px;border:none;border-radius:5px;" class="add-cart">add to cart</button>
+                      
+                    </div>
+                  </div></a>
+                </div>
+                <div class="col">
+                  <a href="#"><div class="card h-100">
+                    <img src="https://staticimg.titan.co.in/Fastrack/Catalog/6267SL01_1.jpg?pView=listing" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">stunners 3.0 purple stainless steel</h5>
+                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional....</p>
+                      <p class="card-text">Rs.1295</p>
+                  <button style="background-color:black;color:white;padding: 10px 121px;border:none;border-radius:5px;" class="add-cart">add to cart</button>
+                      
+                    </div>
+                  </div></a>
+                </div>
+                <div class="col">
+                    <a href="#"><div class="card h-100">
+                    <img src="https://staticimg.titan.co.in/Fastrack/Catalog/6216QM01_1.jpg?pView=listing" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">fastrack - ruffles beige dial</h5>
+                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional....</p>
+                      <p class="card-text">Rs.1600</p>
+                  <button style="background-color:black;color:white;padding: 10px 121px;border:none;border-radius:5px;" class="add-cart">add to cart</button>
+                      
+                    </div>
+                  </div></a>
+                </div>
+                <div class="col">
+                    <a href="#"><div class="card h-100">
+                    <img src="https://staticimg.titan.co.in/Fastrack/Catalog/3247NM02_1.jpg?pView=listing" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">grey dial stainless steel strap watch</h5>
+                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional....</p>
+                      <p class="card-text">Rs.1999</p>
+                  <button style="background-color:black;color:white;padding: 10px 121px;border:none;border-radius:5px;" class="add-cart">add to cart</button>
+                      
+                    </div>
+                  </div></a>
+                </div>
+              </div><br><br>
+              
+                
+                
+        </section>
+        <section>
+            <hr style="width:95%;margin:auto;"><br>
+            <p style="margin-left: 3%;">POPULAR SEARCHES: Analog Watches | Automatic Watches | Luxury Watches | Smart Watches</p>
+            <hr style="width:95%;margin:auto;"><br>
+        </section>
+        
+        <section>
+          <div style="padding-left:3%;padding-right: 3%;">
+          <p ><h1>Fastrack Watches</h1><br>
+            Accessorizing can turn your whole look around and make you look like you've spent a lot of time putting your look together. However, it is very important to find an accessory that not just goes with your outfit but also adds<br>value to your look. One such accessory is a wristwatch. When it comes to accessories for men, nothing comes close to the classy appeal of a wristwatch. No matter where you're going, the right timepiece can be the<br>perfect way to add a sophisticated touch to your look.<br>
+            However, to make sure you get your hands on the perfect watch that stays by your side for years to come, it is crucial to invest in renowned brands that are known for offering durable, high-quality products. At Titan<br>Watches, we let you explore a host of these brands and browse through thousands of products before you pick the right watch for yourself.<br>
+            
+            <br><h3>Buy The Best Watches For Men At Timetrack</h3>
+            The markets are flooded with excellent branded watches for men. Since a wristwatch is one of the most preferred accessories for men, they are also a smart gifting option. However, since a watch is a notable investment,<br> it is essential to pick one that would go with a majority of your outfits, allowing you to get the best use out of it.<br>
+            Another thing that you should keep in mind is that your watch should have all the features that are important for you. For instance, if you want your watch to act as a fitness band and help you keep track of your wellbeing,<br> you should go for a smartwatch. On the other hand, if you want a watch that would go with your formal looks, a smart analogue watch might be your best bet.<br>
+            At Titan, we have a wide variety of watches for boys and men. From smartwatches to hybrid timepieces, no matter what your choice might be, you'll find it here. To make it even easier for you to get your hands on your<br> perfect timepiece, we will get it delivered straight to your doorstep.<br>
+            
+            <br><h3>Why Shop For Men's Watches Online?</h3><br>
+            Shopping for men's watches online allows you to explore thousands of products before making a choice. Moreover, when you shop at our online shop, you get to filter out the products according to the price range. This<br> gives you the option to check out the watches that fit your budget.<br>
+            Here we discuss a few more reasons why you must watches for men online.<br>
+            
+            <b>• A Huge Variety Of Branded Watches For Men</b><br>
+            When you shop online at Titan Watches, you can explore a wide variety of branded watches online and get your hands on your perfect match. No matter what kind of watch you're looking for, visit our online store, and you'll be spoilt for choice.<br>
+            
+            <b>• You Get Better Deals</b><br>
+            You get great offers and discounts when you shop for men's watches online. This means that you can get your hands on your favourite watch without having to shell out large sums of money.<br>
+            
+            <b>• Fuzz-Free Returns And Exchange</b><br>
+            One thing that makes online shopping even more convenient is the fuzz-free option of returning or exchanging a product in case you aren't satisfied. This means you don't need to head back to the store and wait in long ques if you wish to return something you bought.
+            All you need to do is, raise a return request, and the product will be picked up from your doorstep. However, it is always recommended to go through the return policy of a product before you buy it.<br>
+            
+            <b>• You Can Take Your Time To Decide</b><br>
+            You have limited time when you visit an offline store to shop for watches. This means you can explore limited options, and this can prevent you from making a well-informed decision. This is why it is always better to make such a significant purchase online, as it gives you the luxury of unlimited time and allows you to explore thousands of options before making your decision.<br>
+            
+            <b>• Get Your Watch Delivered To Your Doorstep</b>
+            This is perhaps the most significant advantage of shopping for watches online. Online shopping allows you to buy your favourite products from the comfort of your home and save out on time and energy.<br>
+            
+            <b>Best Watch Brands For Men</b><br>
+            Watches have always been the easiest way to style your outfit. Not only do they tie your entire look together, but they also add a touch of sophistication that stays unmatched. Men are now open to experimenting with new styles of watches and wish to invest in good quality, branded pieces.<br>
+            If you too wish to go for a watch that would last you a long time, you should go for a trusted brand. At Titan, we have a plethora of national and international watch brands, all in one place, allowing you to make an informed decision.<br>
+            Here are some of the best men's watches brands available at Titan watches:<br><br>
+            
+            <b>• Sonata</b><br>
+            Sonata is one brand that has made a mark for itself in the market and has become one of the most preferred names when it comes to men's watches. Sonata watches bring a touch of understated charm to your daily looks and can also be a great addition to formal attires.
+            
+            <br><b>• Fastrack</b><br>
+            Fastrack is one of India's most popular watch brands and has made a special place for itself in the hearts of the millennials. If you are looking for a stylish and trendy watch that would add youthful energy to your look, Fastrack watches can be your best bet.
+            
+            <br><b>• Kenneth Cole</b><br>
+            If you want a watch that defines tasteful elegance, Kenneth Cole can be your best match. These watches are made for the gentleman in you and will add a stylish finishing touch to your ensemble.
+            
+            <br><b>• Tommy Hilfiger</b><br>
+            Tommy Hilfiger is undoubtedly one of the most notable fashion brands in the world. This brand brings its elegant yet sporty aesthetic to its timepieces and lends you a laidback, chic appeal. Tommy Hilfiger watches for men are crafted with practicality and comfort in mind, making them an excellent everyday option.
+            
+            <br><b>• Nebula</b><br>
+            Nebula watches are made for those who wish to make an impact with their looks. Stylish, elegant and classy, the nebula watch collection commands attention. If you're looking to invest in a timepiece that would add true sophistication to your attire, our vote goes to Nebula.
+            
+            <br><b>• Titan</b><br>
+            One of India's leading watch brands, Titan, brings together a diversified range of stylish watches. You can choose from casual to fashion and workwear watches online at affordable rates.
+            
+            <br><b>• Xylys</b><br>
+            An exclusive brand of Swiss watches by Titan, Xylys represents uniqueness in designs with its range of aesthetically pleasing timepieces. Reasonably priced with over 100 ergonomically designed models, you can take your pick online.
+            
+            <br><b>• Police</b><br>
+            Launched in 2003, Police watches appeals to the masses and offers haute couture timepieces. From casual street style to formal workwear watches, you can get it all. Pick your best fit from our official website and avail of great deals and offers.
+            
+            <br><b>• Lee Cooper</b><br>
+            If casual but super stylish watches are your thing, Lee Cooper can be the brand for you. From leather to metal, no matter what you're looking for, you'll find your match from Lee Cooper. What's more? These watches are budget-friendly too. So now you can get your hands on a great watch without burning a hole in your pocket.
+            
+            <br><b>• Coach</b><br>
+            Coach is one of the most celebrated premium fashion brands in the world. This brand has made a mark in the fashion industry and continues to turn heads with its unique designs. Coach watches are designed with the same aesthetic in mind and are a showstopper in every sense.
+            
+            <br><b>Types Of Men's Watches</b><br>
+            If you've been planning to get a watch for some time now, you know it can be quite a task to find the best one. With thousands of options available in the market today, it is essential to explore and make an informed decision. The first you must know in order to make this decision is the kind of watches that are available today. Let's take a look at a few of them.
+            
+            <br><b>• Analog Watches</b><br>
+            Analogue watches are the classic 2-hand timepiece that features a 12-hour watch face. Today you can find a wide variety of options in analogue watches and choose the one that's best suited for you as per your taste and requirements.
+            
+            <br><b>• Smartwatches</b><br>
+            Smartwatches are genuinely brought about a revolution in the wearable industry and became one of the most preferred kinds of wrist watches for men. These watches are designed to function as an extension of your smartphone, allowing you to access your phone's essential features from your wrist.
+            Moreover, a good smartwatch also comes with a variety of features like a heart rate sensor and pedometer, which can be incredibly beneficial if you want to keep your health under checks.
+            
+            <br><b>• Dress Watches</b><br>
+            Dress watches are nothing but your formal and dressy wristwatches that are designed to be sported with your tuxedos and suits. These watches are an excellent accessory for formal events, meeting or even weddings. These days there are many branded dress watches available in the market, allowing you to choose the one that works for you. These watches have also become a popular gifting option.
+            
+            <br><b>• Hybrid Watches</b><br>
+            If you are impressed with the features of a digital watch but want to see the same functionality in the design of an analogue watch, a hybrid watches can be a good option for you. These watches come complete with an LCD screen and the multiple features of a digital watch but are designed to give a look and feel of an analogue timepiece, giving you the best of both worlds.
+            
+            <br><b>• Casual Watches</b><br>
+            If you want a watch for your day-to-day looks and wish to go for an inexpensive option, you can go for an excellent Casual watch. These watches can be an excellent addition to your laid back looks and are a perfect accessory for college or school students as well. Casual watches are an excellent option for those who are looking for an affordable yet practical option.
+            
+           <br><b>• Luxury Watches</b><br>
+            If you're looking for a timepiece that won't just be an accessory but a status symbol, you can go for luxury watches. Several luxury brands offer exquisite timepieces that not just complete your look but can also transform your personality in an instant. These watches are a true head turner and are perfect if you want to make an impactful first impression.
+            While you can easily find a luxury watch to suit your personal style, if you're planning to buy your first luxury watch, it will be a good idea to go for a neutral colour like black or tan so that you can pair it with most of your outfits.
+            
+            <br><b>Watches For Men – FAQs</b><br>
+            1. What Kind Of Men's Watches Goes With Formal Outfits?<br>
+            If you're looking for a watch to style with your formal outfits, you can go for dress timepieces. You can go for leather or metal straps in neutral tones and medium sized dials. Some of the best brands that offer dress watches are Sonata and Nebula.
+            
+            <br><b>2. Are Watches Available On The Titan Website Authentic?</b><br>
+            Titan Watches is a product of TATA and has made its mark as one of India's most reputed watch retailer. At Titan Watches, we offer a range of excellent watches from national and international brands.
+            Apart from our home brands like Fastrack, Titan, Xylys and Sonata, we alsoproducts from international brands like Tommy Hilfiger, Kenneth Cole and more, giving you access to a few of the best timepieces available in the market. All of our products are 100% authentic and genuine.
+            
+            <br><b>3. Is It Possible To Return Or Exchange A Product If I Am Not Happy With It?</b><br>
+            At Titan, we believe in 100% customer satisfaction, and this is why we allow you to exchange or return your product if you're not happy with it. However, you must ensure that the purchased product is unused and in its original packaging. You are also requested to give the invoice to get your refund. For more details on this, you can visit our website.
+            
+            <br><b>4. What Are The Modes Through Which I Can Pay When I Shop At Titan?</b><br>
+            When you shop at Titan, you can make quick, easy, and secure payments through multiple methods.<br><br>
+            
+            <b>For Domestic Orders<br>
+            • Debit/Credit Card<br><br>
+            
+            • International Cards<br><br>
+            
+            • Net Banking<br><br>
+            
+            • Cash on Delivery<br><br>
+            
+            • EMI and UPI</b><br><br>
+            
+            For International Orders<br>
+            <b>• PayPal Payment Gateway</b><br>
+            
+            Depending on your card, you can also go for EMI options.
+            
+            <br><b>5. How To Choose A Good Watch For Men?</b><br>
+            If you're looking for men's watches, there can be several considerations you might want to keep in mind. Let's discuss a few of these considerations.
+            
+            <br><b>• Usage</b><br>
+            The first thing you need to keep in mind is the uses you want to derive from your new watch. Do you want to use it to maintain a fit lifestyle? Go for a smartwatch. Do you want to get a watch that would be an excellent addition to your formal wardrobe? A dressy watch might be a good option for you.
+            
+            <br><b>• Budget</b><br>
+            If you're on a set budget, you need to keep it in mind to ensure you don't make an overpriced purchase.
+            
+           <br><b> • Style</b><br>
+            The style of your watch plays a significant role in determining how frequently you will be able to use your watch. If you often step out in casual outfits, a casual watch will be a good option for you. However, if you wear formals on a regular basis, you might want to go for a formal men's watch.
+            
+            <br><b>• Material</b><br>
+            A good quality watch is usually made of stainless steel, titanium or ceramic. Depending on your use and budget, you can opt for suitable material.
+            
+            <br><b>• Water Resistance</b><br>
+            Another essential feature to look for, water resistance, which is a key determinant while looking for a good watch. Make sure to look for this feature while buying online or offline.
+            
+            <br><b>• Brand Reputation</b><br>
+            The watch's brand tells you a lot about its quality and design. You must go for reputable brands while shopping for wristwatches to ensure they last you long enough.
+            
+            <br><b>6. What Is The Cancellation Policy At Titan Watches?</b><br>
+            After your order has been placed, it can only be cancelled before it gets shipped. You can simply track your orders and find out the status of the shipment. Once you submit the cancellation request, we will initiate the refund process, and the refund will be credited to your original payment source.
+            
+            <br><b>7. Are Titan Watches Affordable?</b><br>
+            At Titan watches, we take pride in having something for everyone. If you're looking for products within a price range, you can simply filter the products according to that price range to check out the watches that will fit in your budget.
+            
+            <br><b>8. Can I Buy New Watch Straps From Titan?</b><br>
+            Yes, you can check out the extensive range of watch straps available on our website. These straps allow your watch to get a brand new look every day and make sure that your watch goes with your outfit and your mood.
+            
+            <br><b>9. Can I Find Sports Wrist Watches For Men At Titan's Online Store?</b><br>
+            Yes, we have a wide variety of sports wrist watches for men at our online store. You can opt for brands like Tommy Hilfiger and Fastrack to find sports watches. You can even opt for smartwatches with multiple sports modes to track your progress in your favourite sports.</p>
+            </div>
+        </section>
+        <section>
+            <div style="background-color: black;width:100%;height:520px;line-height: 3;padding-top: 30px;">
+            <div class="row" style="padding-left:60px;padding-right:60px">
+              <div class="col-lg-2 col-sm-12">
+                <h6>CUSTOMER SERVICE</h6>
+                <a href="#" class="links">Payment Options</a><br>
+                <a href="#" class="links">Track Order</a><br>
+                <a href="#" class="links">Find a Store</a><br>
+                <a href="#" class="links">Encircle program</a><br>
+              </div>
+              <div class="col-lg-2 col-sm-12">
+                <h6>Contact Us</h6>
+                <a href="#" class="links">7989388254</a><br>
+                <a href="#" class="links">sriramkarthikakula6@gmail.com</a><br>
+                <a href="#" class="links">Frequently asked quetions</a><br>
+              </div>
+              <div class="col-lg-2 col-sm-12">
+                <h6>POLICIES</h6>
+                <a href="#" class="links">Returns & Exchanges</a><br>
+                <a href="#" class="links">Cancellation</a><br>
+                <a href="#" class="links">Shipping</a><br>
+                <a href="#" class="links">Warranty Policies</a><br>
+                <a href="#" class="links">Delivery Information</a><br>
+              </div>
+              <div class="col-lg-2 col-sm-12">
+                <h6>ABOUT TIMETRACK</h6>
+                <a href="#" class="links">About Us</a><br>
+                <a href="#" class="links">Careers</a><br>
+              </div>
+              <div class="col-lg-4 col-sm-12">
+                <h6 style="margin-bottom: 20px;">DOWNLOAD WORLD OF TITAN APP</h6>
+                <div style="margin-left: 30px;">
+                  <button style="background-color: black;border-color:gray;color:white;border-radius:5px;border:1px solid;margin-right: 10px;">
+                    <i class="fa-brands fa-apple" style="font-size:35px;margin-top: 10px;"></i> <b><p style="display:inline;margin-bottom:25px;">From App Store</p></b>
+                  </button>
+                  <button style="background-color: black;border-color:gray;color:white;border-radius:5px;border:1px solid;display: inline;">
+                    <i class="fa-brands fa-google-play" style="font-size:35px;margin-top: 10px;"></i> <b><p style="display:inline;margin-bottom:25px;">From PlayStore</p></b>
+                  </button>
+                </div>
+                <div>
+                  <h6 style="margin-top: 30px;">FOLLOW US ON</h6>
+                  <div style="margin-left: 30px;">
+                    <i class="fa-brands fa-instagram icons" style="font-size: 30px;margin-right: 20px;"></i>
+                    <i class="fa-brands fa-facebook icons" style="font-size: 30px;margin-right: 20px;"></i>
+                    <i class="fa-brands fa-linkedin icons" style="font-size: 30px;margin-right: 20px;"></i>
+                    <i class="fa-solid fa-envelope icons" style="font-size: 30px;;margin-right: 20px;"></i>
+                  </div>
+                </div>
+                <h6 style="margin-top: 10px;">Need Help?</h6>
+                <p style="margin-top: 10px;color: white;margin-bottom: 0;"><a href="#" style="color:white;">Click Here</a> to chat with us on <i class="fa-brands fa-whatsapp" style="font-size:30px;color: rgb(21, 183, 21);"></i></p>
+                <div>
+                  <p style="display:inline;color: gray;margin-left: 60px;font-size: 10px;">Tearms & Conditions</p>
+                  <p style="display:inline;color: gray;font-size: 12px;">Privacy Policy</p>
+                </div>
+              </div>
+            </div>
+            <p style="margin-left:550px;display:inline;color: white;"> © 2022 TimeTrack Company Limited. All Rights Reserved.</p>
+            <hr style="color:white;border-width:3px;" size="10">
+            <div style="background-color: black;">
+              <img src="https://staticimg.titan.co.in/Common_Assets/Logo/titan-dt-footer.png">
+              </div>
+            </div>
+        </section>
+        <script src="add.js"></script>
+    </body>
+</html>

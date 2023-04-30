@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Timetrack.Co</title>
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <style>
+            a{
+                text-decoration: none;
+                color: black;
+            }
+            img{
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+            a:hover{
+                color: black;
+            }
+            h6{
+              color: white;
+            }
+            .links{
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+          }
+          .links:hover{
+            color: orange;
+          }
+          .icons{
+            color:white;
+          }
+          .icons:hover{
+            color: orange;
+          }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-md navbar-light bg-#2C3333 navback">
+            <a class="navbar-brand" href="/" style="color: black;margin-left: 3;font-size: 1rem;font-family: 'Kolker Brush', cursive;"><img src="T.png" alt="icon" height="50px" style="margin-left:40%;"> </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto" style="width:500px;">
+                  {% if user.is_authenticated %}
+                  <li class = "nav-item" style="margin-right: 10px;"><a class="nav-link" href="/"><b>Hello {{user.username}}!</b></a></li>
+                  <li class = "nav-item" style="margin-right: 10px;"><a class="nav-link" href="#"><b><i class="fa-solid fa-magnifying-glass"></i> Search</b></a></li>
+                  <li class = "nav-item"><a class="nav-link" href="extra/cart" ><b><i class="fa-regular fa-heart"></i> Your selection (<span class="addto">0</span>)</b></a></li><br>
+                  <li class = "nav-item" style="margin-right: 10px;"><a class="nav-link" href="accounts/logout"><b>Log Out</b></a></li>
+                  {% else %}
+                  <li class = "nav-item" style="margin-right: 10px;"><a class="nav-link" href="accounts/logins"><b><i class="fa-solid fa-right-to-bracket"></i> login</b></a></li>
+                  <li class = "nav-item" style="margin-right: 10px;"><a class="nav-link" href="accounts/signup"><b><i class="fa-regular fa-id-card"></i> Sign up</b></a></li>
+                  <li class = "nav-item" style="margin-right: 10px;"><a class="nav-link" href="#"><b><i class="fa-solid fa-magnifying-glass"></i> Search</b></a></li>
+                  <li class = "nav-item"><a class="nav-link" href="extra/cart" ><b><i class="fa-regular fa-heart"></i> Your selection (<span class="addto">0</span>)</b></a></li><br>
+                  {% endif %}
+                </ul>
+            </div>
+        </nav>
+        <section>
+            <div>
+                <div><img src="https://www.fastrack.in/wps/wcm/connect/fastrack/6b29db06-5fc0-4baf-b8ba-aa46f89dcabc/desktop/2500x400.jpg?MOD=AJPERES&CACHEID=ROOTWORKSPACE.Z18_90IA1H80OGS700Q8OKN8NF0004-6b29db06-5fc0-4baf-b8ba-aa46f89dcabc-desktop-ogq66M-" style="width: 100%;"></div><br>
+                <div style="display: flex;">
+                    <div style="flex: 1;margin-left: 6%;">pick up at the store</div>
+                    <div style="flex: 1;">pick up at the store</div>
+                    <div style="flex: 1;">pick up at the store</div>
+                    <div style="flex: 1;">pick up at the store</div>
+                </div>
+            </div>
+        </section><br><br>
+        <h1 align="center">Here are the Fastrack OPULENCE Watches</h1><br><br>
+        <section>
+          <div class="row row-cols-1 row-cols-md-3  g-4" style="padding-left: 20px;padding-right: 10px;">
+            <div class="col">
+              <a href="#"><div class="card h-100">
+                <img src="https://staticimg.titan.co.in/Fastrack/Catalog/3287NM01_1.jpg?pView=listing" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+              </div></a>
+            </div>
+            <div class="col">
+              <a href="#"><div class="card h-100">
+                <img src="https://staticimg.titan.co.in/Fastrack/Catalog/38077AP02_1.jpg?pView=listing" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a short card.</p>
+                </div>
+              </div></a>
+            </div>
+            <div class="col">
+                <a href="#"><div class="card h-100">
+                <img src="https://staticimg.titan.co.in/Fastrack/Catalog/38074AP01_1.jpg?pView=listing" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+                </div>
+              </div></a>
+            </div>
+          </div><br><br>
+          <div class="row row-cols-1 row-cols-md-3  g-4" style="padding-left: 20px;padding-right: 10px;">
+            <div class="col">
+              <a href="#"><div class="card h-100">
+                <img src="https://staticimg.titan.co.in/Fastrack/Catalog/3287NM01_1.jpg?pView=listing" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+              </div></a>
+            </div>
+            <div class="col">
+              <a href="#"><div class="card h-100">
+                <img src="https://staticimg.titan.co.in/Fastrack/Catalog/38077AP02_1.jpg?pView=listing" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a short card.</p>
+                </div>
+              </div></a>
+            </div>
+            <div class="col">
+                <a href="#"><div class="card h-100">
+                <img src="https://staticimg.titan.co.in/Fastrack/Catalog/38074AP01_1.jpg?pView=listing" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+                </div>
+              </div></a>
+            </div>
+          </div><br><br>
+          <div class="row row-cols-1 row-cols-md-3  g-4" style="padding-left: 20px;padding-right: 10px;">
+            <div class="col">
+              <a href="#"><div class="card h-100">
+                <img src="https://staticimg.titan.co.in/Fastrack/Catalog/3287NM01_1.jpg?pView=listing" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+              </div></a>
+            </div>
+            <div class="col">
+              <a href="#"><div class="card h-100">
+                <img src="https://staticimg.titan.co.in/Fastrack/Catalog/38077AP02_1.jpg?pView=listing" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a short card.</p>
+                </div>
+              </div></a>
+            </div>
+            <div class="col">
+                <a href="#"><div class="card h-100">
+                <img src="https://staticimg.titan.co.in/Fastrack/Catalog/38074AP01_1.jpg?pView=listing" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+                </div>
+              </div></a>
+            </div>
+          </div><br><br>
+        </section>
+        <section>
+            <div style="background-color: black;width:100%;height:520px;line-height: 3;padding-top: 30px;">
+            <div class="row" style="padding-left:60px;padding-right:60px">
+              <div class="col-lg-2 col-sm-12">
+                <h6>CUSTOMER SERVICE</h6>
+                <a href="#" class="links">Payment Options</a><br>
+                <a href="#" class="links">Track Order</a><br>
+                <a href="#" class="links">Find a Store</a><br>
+                <a href="#" class="links">Encircle program</a><br>
+              </div>
+              <div class="col-lg-2 col-sm-12">
+                <h6>Contact Us</h6>
+                <a href="#" class="links">7989388254</a><br>
+                <a href="#" class="links">sriramkarthikakula6@gmail.com</a><br>
+                <a href="#" class="links">Frequently asked quetions</a><br>
+              </div>
+              <div class="col-lg-2 col-sm-12">
+                <h6>POLICIES</h6>
+                <a href="#" class="links">Returns & Exchanges</a><br>
+                <a href="#" class="links">Cancellation</a><br>
+                <a href="#" class="links">Shipping</a><br>
+                <a href="#" class="links">Warranty Policies</a><br>
+                <a href="#" class="links">Delivery Information</a><br>
+              </div>
+              <div class="col-lg-2 col-sm-12">
+                <h6>ABOUT TIMETRACK</h6>
+                <a href="#" class="links">About Us</a><br>
+                <a href="#" class="links">Careers</a><br>
+              </div>
+              <div class="col-lg-4 col-sm-12">
+                <h6 style="margin-bottom: 20px;">DOWNLOAD WORLD OF TITAN APP</h6>
+                <div style="margin-left: 30px;">
+                  <button style="background-color: black;border-color:gray;color:white;border-radius:5px;border:1px solid;margin-right: 10px;">
+                    <i class="fa-brands fa-apple" style="font-size:35px;margin-top: 10px;"></i> <b><p style="display:inline;margin-bottom:25px;">From App Store</p></b>
+                  </button>
+                  <button style="background-color: black;border-color:gray;color:white;border-radius:5px;border:1px solid;display: inline;">
+                    <i class="fa-brands fa-google-play" style="font-size:35px;margin-top: 10px;"></i> <b><p style="display:inline;margin-bottom:25px;">From PlayStore</p></b>
+                  </button>
+                </div>
+                <div>
+                  <h6 style="margin-top: 30px;">FOLLOW US ON</h6>
+                  <div style="margin-left: 30px;">
+                    <i class="fa-brands fa-instagram icons" style="font-size: 30px;margin-right: 20px;"></i>
+                    <i class="fa-brands fa-facebook icons" style="font-size: 30px;margin-right: 20px;"></i>
+                    <i class="fa-brands fa-linkedin icons" style="font-size: 30px;margin-right: 20px;"></i>
+                    <i class="fa-solid fa-envelope icons" style="font-size: 30px;;margin-right: 20px;"></i>
+                  </div>
+                </div>
+                <h6 style="margin-top: 10px;">Need Help?</h6>
+                <p style="margin-top: 10px;color: white;margin-bottom: 0;"><a href="#" style="color:white;">Click Here</a> to chat with us on <i class="fa-brands fa-whatsapp" style="font-size:30px;color: rgb(21, 183, 21);"></i></p>
+                <div>
+                  <p style="display:inline;color: gray;margin-left: 60px;font-size: 10px;">Tearms & Conditions</p>
+                  <p style="display:inline;color: gray;font-size: 12px;">Privacy Policy</p>
+                </div>
+              </div>
+            </div>
+            <p style="margin-left:550px;display:inline;color: white;"> © 2022 TimeTrack Company Limited. All Rights Reserved.</p>
+            <hr style="color:white;border-width:3px;" size="10">
+            <div style="background-color: black;">
+              <img src="https://staticimg.titan.co.in/Common_Assets/Logo/titan-dt-footer.png">
+              </div>
+            </div>
+        </section>
+    </body>
+</html>

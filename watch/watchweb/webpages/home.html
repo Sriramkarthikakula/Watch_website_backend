@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"  content="width=device-width, initial-scale=1.0">
+        <title>Time Track.co</title>
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" rel="stylesheet">
+        <style>
+          .companyimg{
+            margin-top: 10%;
+            width: 400px;
+            height: 400px;
+            margin-bottom: 5%;
+          }
+          .trending{
+            box-shadow: 0px 0px 0px black;
+            transition: box-shadow 1s;
+          }
+          .trending:hover{
+            box-shadow: 1px 1px 5px black;
+          }
+          .clicking{
+            opacity: 0.5;
+          }
+          .trending1{
+            width: 350px;
+            height: 350px; 
+          }
+          .viewed:hover{
+            box-shadow: 1px 1px 5px black;
+          }
+          .trendinrolex{
+              width:300px;
+              height:300px;
+              transition: all 0.5s;
+          }
+          .trendinrolex:hover{
+            width: 305px;
+            height: 305px;
+          }
+          .links{
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+          }
+          .links:hover{
+            color: orange;
+          }
+          h6{
+            color:white;
+          }
+          .icons{
+            color:white;
+          }
+          .icons:hover{
+            color: orange;
+          }
+          a{
+            color: black;
+            text-decoration: none;
+          }
+          a:hover{
+            color:black;
+          }
+        </style>
+    </head>
+    <body>
+          <nav class="navbar navbar-expand-md navbar-light bg-#2C3333 navback">
+            <a class="navbar-brand" href="#" style="color: black;margin-left: 3;font-size: 1rem;font-family: 'Kolker Brush', cursive;"><img src="T.png" alt="icon" height="50px" style="margin-left:40%;"> </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto" style="width:600px;">
+                    {% if user.is_authenticated %}
+                    <li class = "nav-item" style="margin-right: 10px;"><a class="nav-link" href="#"><b>Hello {{user.username}}!</b></a></li>
+                    <li class = "nav-item" style="margin-right: 10px;"><a class="nav-link" href="#"><b><i class="fa-solid fa-magnifying-glass"></i> Search</b></a></li>
+                    <li class = "nav-item"><a class="nav-link" href="extra/cart" ><b><i class="fa-regular fa-heart"></i> Your selection (<span class="addto">0</span>)</b></a></li><br>
+                    <li class = "nav-item" style="margin-right: 10px;"><a class="nav-link" href="accounts/logout"><b>Log Out</b></a></li>
+                    {% else %}
+                    <li class = "nav-item" style="margin-right: 10px;"><a class="nav-link" href="accounts/admin"><b><i class="fa-solid fa-right-to-bracket"></i>Admin login</b></a></li>
+                    <li class = "nav-item" style="margin-right: 10px;"><a class="nav-link" href="accounts/logins"><b><i class="fa-solid fa-right-to-bracket"></i> login</b></a></li>
+                    <li class = "nav-item" style="margin-right: 10px;"><a class="nav-link" href="accounts/signup"><b><i class="fa-regular fa-id-card"></i> Sign up</b></a></li>
+                    <li class = "nav-item" style="margin-right: 10px;"><a class="nav-link" href="#"><b><i class="fa-solid fa-magnifying-glass"></i> Search</b></a></li>
+                    <li class = "nav-item"><a class="nav-link" href="extra/cart" ><b><i class="fa-regular fa-heart"></i> Your selection (<span class="addto">0</span>)</b></a></li><br>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6"></button>
+            </div>
+            <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active" data-bs-interval="5000">
+                <img src="https://www.fastrack.in/wps/wcm/connect/fastrack/57e31efc-c576-4546-83c0-7f1194d6704e/desktop/1920x600_1.jpg?MOD=AJPERES&CACHEID=ROOTWORKSPACE.Z18_90IA1H80OGS700Q8OKN8NF0004-57e31efc-c576-4546-83c0-7f1194d6704e-desktop-ogq3ei6&impolicy=pqlow" class="d-block w-100" alt="..." width="1213.600px" height="475.250px">
+              </div>
+              <div class="carousel-item" data-bs-interval="5000">
+                <img src="https://www.fastrack.in/wps/wcm/connect/fastrack/711192a4-d150-49d0-ab40-5584cd50dad7/desktop/1920x600.jpg?MOD=AJPERES&CACHEID=ROOTWORKSPACE.Z18_90IA1H80OGS700Q8OKN8NF0004-711192a4-d150-49d0-ab40-5584cd50dad7-desktop-oh2k280&impolicy=pqlow" class="d-block w-100" alt="..." width="1213.600px" height="475.250px">
+              </div>
+              <div class="carousel-item" data-bs-interval="5000">
+                <img src="https://www.fastrack.in/wps/wcm/connect/fastrack/3675c6dd-fa6a-4d3b-a470-e59b92b3481e/desktop/1920x600_2.jpg?MOD=AJPERES&CACHEID=ROOTWORKSPACE.Z18_90IA1H80OGS700Q8OKN8NF0004-3675c6dd-fa6a-4d3b-a470-e59b92b3481e-desktop-ogq3DMp&impolicy=pqlow" class="d-block w-100" alt="..." width="1213.600px" height="475.250px">
+              </div>
+              <div class="carousel-item" data-bs-interval="5000">
+                <img src="https://timewel.com/wp-content/uploads/2021/08/6-1.jpg" class="d-block w-100" alt="..." width="1213.600px" height="475.250px">
+              </div>
+              <div class="carousel-item" data-bs-interval="5000">
+                <img src="https://timewel.com/wp-content/uploads/2021/08/slider3.jpg" class="d-block w-100" alt="..." width="1213.600px" height="475.250px">
+              </div>
+              <div class="carousel-item" data-bs-interval="5000">
+                <img src="https://timewel.com/wp-content/uploads/2021/08/slider2.jpg" class="d-block w-100" alt="..." width="1213.600px" height="475.250px">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+          </div>
+          <section style="text-align: center;">
+          <h1 align="center" style="margin-top: 5%;font-family: 'Raleway', sans-serif;margin-bottom: 10%;">The Companies That We Maintain</h1>
+          <div class="container text-center">
+            <div class="row" style="position: absolute;z-index:1;left:14%;top:700px;">
+              <div class="col-lg-6 col-sm-12">
+                <a href="extra/fastrack"><img src="https://staticimg.titan.co.in/Common_Assets/promotion/FastrackLogo-200818.jpg" alt="feat" width="380px" height="380px" style="border-radius: 5px;"></a><br>
+              </div>
+              <div class="col-lg-6 col-sm-12">
+                <a href="extra/titan"><img src="https://m.economictimes.com/thumb/msid-71067777,width-1200,height-900,resizemode-4,imgsize-32439/untitled-design-64.jpg" alt="feat" width="380px" height="380px" style="margin-left: 170px;border-radius: 5px;"></a><br>
+              </div>
+            </div>
+            </div>
+            <div style="width: 100%;height:320px;background-color:#181818;position: relative;"></div>
+          </section>
+          <section>
+            <div style="margin-top: 12%;">
+            <div class="container text-center">
+              <div class="row" style="position: absolute;z-index:1;left:14%;top:1210px;">
+                <div class="col-lg-6 col-sm-12">
+                  <a href="extra/timewel"><img src="https://image3.mouthshut.com/images/imagesp/925044143s.png" alt="feat" width="380px" height="380px" style="border-radius:5px;"></a><br>
+                </div>
+                <div class="col-lg-6 col-sm-12">
+                  <a href="https://www.rolex.com/watchmaking/excellence-in-the-making?ef_id=CjwKCAjwo7iiBhAEEiwAsIxQEaBu6crM7wxuAN7JXRk0zb73Dqr9z3-kOrjYrwTM6n4UXakYxhmrgRoCsScQAvD_BwE:G:s&s_kwcid=AL!141!3!652018100626!e!!g!!rolex"><img src="https://i.pinimg.com/736x/14/0c/1b/140c1b11a726368004b25cbe6a9a6029.jpg" alt="feat" width="380px" height="380px" style="margin-left: 170px;border-radius: 5px;"></a><br>
+                </div>
+              </div>
+              </div>
+              <div style="width: 100%;height:320px;background-color:#181818;position: relative;"></div>
+            </div>
+          </section>
+          
+          <h1 align="center" style="margin-top: 7%;font-family: 'Raleway', sans-serif;">Trending Products in TimeTrack</h1>
+          <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner" style="padding: 100px;">
+              <div class="carousel-item active" data-bs-interval="10000">
+                <div>
+                <a href="extra/trendintt11">
+                  <img src="https://content.rolex.com/dam/2022-11/upright-bba-with-shadow/m126900-0001.png?imwidth=420" class="trending w-20" alt="..." width="200px" height="200px" style="display: inline-block;margin-right: 30px;margin-left: 90px;" onclick="clicked()">
+                  <h5 style="position: absolute;top:210px;left:145px;">AIR KING</h5></a>
+                  
+              
+                
+                  <img src="https://content.rolex.com/dam/2022-11/upright-bba-with-shadow/m126720vtnr-0001.png?imwidth=420" class="trending w-20" alt="..." width="200px" height="200px" style="display: inline;margin-right: 30px;" onclick="clicked()">
+                  <h5 style="position: absolute;top:210px;left:356px;">GMT-MASTER ll</h5>
+                    
+                
+                  
+                    <img src="https://content.rolex.com/dam/2022-11/upright-bba-with-shadow/m326938-0005.png?imwidth=420" class="trending w-20" alt="..." width="200px" height="200px" style="display: inline;margin-right: 30px;" onclick="clicked()">
+                    <h5 style="position: absolute;top:210px;left:590px;">SKY-DWELLERS</h5>
+                      
+                    
+                      <img src="https://content.rolex.com/dam/2022-11/upright-bba-with-shadow/m226658-0001.png?imwidth=420" class="trending w-20" alt="..." width="200px" height="200px" style="display: inline;margin-right: 30px;" onclick="clicked()">
+                      <h5 style="position: absolute;top:210px;left:825px;" align="center">YATCH-MASTER<br>42</h5>
+                        
+                      
+                      <img src="https://content.rolex.com/dam/2022-11/upright-bba-with-shadow/m116505-0014.png?imwidth=420" class="trending w-20" alt="..." width="200px" height="200px" style="display: inline;margin-right: 30px;" onclick="clicked()">
+                      <h5 style="position: absolute;top:210px;left:1058px;" align="center">COSMOGRAPH <br>DAYTONA</h5>
+                          
+                      </div>
+                </div>
+              <div class="carousel-item" data-bs-interval="100000">
+                <div>
+                  <img src="https://staticimg.titan.co.in/Fastrack/Catalog/38077AP02_1.jpg?pView=listing" class="trending w-20" alt="..." width="200px" height="200px" style="display: inline-block;margin-right: 30px;margin-left: 90px;" onclick="clicked()">
+                  <h5 style="position: absolute;top:210px;left:125px;">First slide label</h5>
+                  
+              
+                
+                  <img src="https://staticimg.titan.co.in/Fastrack/Catalog/38074AP01_1.jpg?pView=listing" class="trending w-20" alt="..." width="200px" height="200px" style="display: inline;margin-right: 30px;" onclick="clicked()">
+                  <h5 style="position: absolute;top:210px;left:356px;">First slide label</h5>
+                    
+                
+                  
+                    <img src="https://staticimg.titan.co.in/Fastrack/Catalog/3277NM01_1.jpg?pView=listing" class="trending w-20" alt="..." width="200px" height="200px" style="display: inline;margin-right: 30px;" onclick="clicked()">
+                    <h5 style="position: absolute;top:210px;left:590px;">First slide label</h5>
+                      
+                    
+                      <img src="https://staticimg.titan.co.in/Titan/Catalog/90140QM03_1.jpg?impolicy=pqmed&imwidth=640" class="trending w-20" alt="..." width="200px" height="200px" style="display: inline;margin-right: 30px;" onclick="clicked()">
+                      <h5 style="position: absolute;top:210px;left:825px;">First slide label</h5>
+                        
+                      
+                      <img src="https://staticimg.titan.co.in/Titan/Catalog/1843QM02_1.jpg?impolicy=pqmed&imwidth=640" class="trending w-20" alt="..." width="200px" height="200px" style="display: inline;margin-right: 30px;" onclick="clicked()">
+                      <h5 style="position: absolute;top:210px;left:1058px;">First slide label</h5>
+                          
+                      </div>
+              </div>
+              <div class="carousel-item" data-bs-interval="100000">
+                <div>
+                  <img src="https://staticimg.titan.co.in/Titan/Catalog/1805QM04_1.jpg?impolicy=pqmed&imwidth=480" class="trending w-20" alt="..." width="200px" height="200px" style="display: inline-block;margin-right: 30px;margin-left: 90px;" onclick="clicked()">
+                  <h5 style="position: absolute;top:210px;left:125px;">First slide label</h5>
+                  <img src="https://staticimg.titan.co.in/Titan/Catalog/1805QM04_1.jpg?impolicy=pqmed&imwidth=480" class="trending w-20" alt="..." width="200px" height="200px" style="display: inline;margin-right: 30px;" onclick="clicked()">
+                  <h5 style="position: absolute;top:210px;left:356px;">First slide label</h5>
+                    <img src="https://staticimg.titan.co.in/Titan/Catalog/1805QM04_1.jpg?impolicy=pqmed&imwidth=480" class="trending w-20" alt="..." width="200px" height="200px" style="display: inline;margin-right: 30px;" onclick="clicked()">
+                    <h5 style="position: absolute;top:210px;left:590px;">First slide label</h5>
+                      <img src="https://staticimg.titan.co.in/Titan/Catalog/1805QM04_1.jpg?impolicy=pqmed&imwidth=480" class="trending w-20" alt="..." width="200px" height="200px" style="display: inline;margin-right: 30px;" onclick="clicked()">
+                      <h5 style="position: absolute;top:210px;left:825px;">First slide label</h5>
+                      <img src="https://staticimg.titan.co.in/Titan/Catalog/1805QM04_1.jpg?impolicy=pqmed&imwidth=480" class="trending w-20" alt="..." width="200px" height="200px" style="display: inline;margin-right: 30px;" onclick="clicked()">
+                      <h5 style="position: absolute;top:210px;left:1058px;">First slide label</h5>
+                      </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+          <section>
+            <h1 align="center" style="margin-bottom: 15%;margin-top: 7%;font-family: 'Raleway', sans-serif;">Trending</h1>
+            <div class="row" style="position: absolute;z-index:1;left:14%;top:2450px;color:white;text-align: center;">
+              <div class="col-lg-4 col-sm-12">
+                <a href="extra/fastopac"><img src="https://www.fastrack.in/wps/wcm/connect/fastrack/3be2ce43-768f-4a12-83c6-b1a008759b6a/1080x1080.jpg?MOD=AJPERES&CACHEID=ROOTWORKSPACE.Z18_90IA1H80OGS700Q8OKN8NF0004-3be2ce43-768f-4a12-83c6-b1a008759b6a-ogqrSnb" alt="feat" width="350px" height="350px"></a><br>
+                <h4 style="margin-top: 30px;font-family: 'Raleway', sans-serif;">FASTRACK<br>OPULENCE</h4>
+              </div>
+              <div class="col-lg-4 col-sm-12">
+                <a href="extra/blackmetal"><img src="https://timewel.com/wp-content/uploads/2022/04/Timewel_7.jpg" alt="feat" width="350px" height="350px"></a><br>
+                <h4 style="margin-top: 30px;font-family: 'Raleway', sans-serif;">Men's BLACK METAL<br>WATCHES</h4>
+              </div>
+              <div class="col-lg-4 col-sm-12">
+               <a href="extra/yachtmaster"> <img src="https://content.rolex.com/dam/watches/family-pages/yacht-master/roller-features-ym/professional-watches-yacht-master-40-beauty_m268655_0004_1909jva_001.jpg?imwidth=2880" alt="feat" width="350px" height="350px"></a><br>
+                <h4 style="margin-top: 30px;font-family: 'Raleway', sans-serif;">ROLEX<br>YACHT-MASTER</h4>
+              </div>
+            </div>
+            <div style="width: 100%;height:320px;background-color:#181818;position: relative;"></div>
+          </section>
+        <section style="padding: 5% 10%;">
+          <h1 align="center" style="font-family: 'Raleway', sans-serif;">You Recently Viewed</h1>
+          <div class="row">
+          <div class="card col-lg-3 col-md-6 col-sm-12 viewed">
+            <a href="extra/rec1"><img src="https://staticimg.titan.co.in/Titan/Catalog/1805NL01_2.jpg?impolicy=pqmed&imwidth=640" alt="image" class="card-img-top"></a>
+            <div class="card-body">
+              <div class="card-title" >
+                <h5 style="color:black">WORKWEAR WATCH WITH BLACK DAIL & BROWN.... </h5>
+              </div>
+              <div class="card-text" ><p>6,545/-</p></div>
+              <button style="background-color:black;color: white;padding: 10px 85px;border:none;border-radius:5px;" class="add-cart">add to cart</button>
+            </div>
+          </div>
+          <div class="card col-lg-3 col-md-6 col-sm-12 viewed">
+            <a href="extra/rec2"><img src="https://timewel.com/wp-content/uploads/2021/05/N1017A-1255.png" alt="image" class="card-img-top"></a>
+            <div class="card-body">
+              <div class="card-title">
+                <h5 style="color:black">REFLEX PLAY PLUS- SMART WATCH WITH BLUE STR....</h5>
+              </div>
+              <div class="card-text" ><p>1,255/-</p></div>
+              <button style="background-color:black;color: white;padding: 10px 85px;border:none;border-radius:5px;" class="add-cart">add to cart</button>
+
+            </div>
+          </div>
+          <div class="card col-lg-3 col-md-6 col-sm-12 viewed">
+            <a href="extra/rec3"><img src="https://staticimg.titan.co.in/Fastrack/Catalog/3286KM03_1.jpg?pView=pdp" alt="image" class="card-img-top"></a>
+            <div class="card-body">
+              <div class="card-title" >
+                <h5 style="color:black">FASTRACK X THOR GREY DIAL METAL STRAP WAT....</h5>
+              </div>
+              <div class="card-text" ><p>4,995/-</p></div>
+              <button style="background-color:black;color: white;padding: 10px 85px;border:none;border-radius:5px;" class="add-cart">add to cart</button>
+
+            </div>
+          </div>
+          <div class="card col-lg-3 col-md-6 col-sm-12 viewed">
+            <a href="extra/rec4"><img src="https://content.rolex.com/dam/watches/family-pages/day-date/2022/roller/classic-watches-day-date-2022-roller-day-date-01.jpg?imwidth=2880" alt="image" class="card-img-top" height="283px"></a>
+            <div class="card-body" >
+              <div class="card-title" >
+                <h5 style="color:black">REFLEX PLAY PLUS- SMART WATCH WITH BLUE STR....</h5>
+              </div>
+              <div class="card-text" ><p>65,43,589/-</p></div>
+              <button style="background-color:black;color: white;padding: 10px 85px;border:none;border-radius:5px;" class="add-cart">add to cart</button>
+            </div>
+          </div>
+          </div>
+        </section>
+        <section>
+          <h1 align="center" style="font-family: 'Raleway', sans-serif;">Trending in Rolex</h1>
+          <div class="container text-center" style="position: absolute;z-index: 1;margin-left: 6%;">
+          <div class="row justify-content-md-center">
+            <div class="col-lg-3 col-md-6 col-sm-12">
+              <a href="extra/rolextrend1"> <img src="https://content.rolex.com/dam/2022-11/upright-bba-with-shadow/m326238-0009.png?imwidth=420" alt="skydwellers"  class="trendinrolex">
+              <p>SKY-DWELLER</p></a>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+              <img src="https://content.rolex.com/dam/2022-11/upright-bba-with-shadow/m126720vtnr-0001.png?imwidth=420" alt="skydwellers" class="trendinrolex">
+              <p>GMT-MASTER ll</p>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+              <img src="https://content.rolex.com/dam/2022-11/upright-bba-with-shadow/m124273-0001.png?imwidth=420" alt="skydwellers" class="trendinrolex">
+              <p>EXPLORER</p>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+              <img src="https://content.rolex.com/dam/2022-11/upright-bba-with-shadow/m126655-0002.png?imwidth=420" alt="skydwellers" class="trendinrolex">
+              <p>YACHT-MASTER 40</p>
+            </div>
+          </div>
+          </div>
+          <div style="background-color: #434242;width: 100%;height: 300px;position: relative;"></div>
+        </section>
+        <section style="margin-top: 7%;">
+          <h1 align="center" style="font-family: 'Raleway', sans-serif;">Trending in Fastrack</h1>
+          <div class="container text-center" style="position: absolute;z-index: 1;margin-left: 6%;">
+            <div class="row justify-content-md-center">
+              <div class="col-lg-3 col-md-6 col-sm-12">
+                <a href="extra/trendfast1"><img src="https://staticimg.titan.co.in/Fastrack/Catalog/38077AP04_1.jpg?pView=pdp" alt="skydwellers"  class="trendinrolex"></a>
+                <p>REFLEX PLAY PLUS- SMART WATCH</p>
+              </div>
+              <div class="col-lg-3 col-md-6 col-sm-12">
+                <a href="extra/trendfast2"><img src="https://staticimg.titan.co.in/Fastrack/Catalog/38077AP02_1.jpg?pView=pdp" alt="skydwellers" class="trendinrolex"></a>
+                <p>REFLEX PLAY PLUS- SMART WATCH</p>
+              </div>
+              <div class="col-lg-3 col-md-6 col-sm-12">
+                <img src="https://staticimg.titan.co.in/Fastrack/Catalog/3184NM02_1.jpg?pView=pdp" alt="skydwellers" class="trendinrolex">
+                <p>SKY-DWELLER</p>
+              </div>
+              <div class="col-lg-3 col-md-6 col-sm-12">
+                <img src="https://staticimg.titan.co.in/Fastrack/Catalog/3286KM01_1.jpg?pView=pdp" alt="skydwellers" class="trendinrolex">
+                <p>SKY-DWELLER</p>
+              </div>
+            </div>
+            </div>
+            <div style="background-color: #181818;width: 100%;height: 300px;position: relative;"></div>
+        </section>
+        <section style="margin-top: 7%;">
+          <h1 align="center" style="font-family: 'Raleway', sans-serif;">Trending in Titan</h1>
+          <div class="container text-center" style="position: absolute;z-index: 1;margin-left: 6%;">
+            <div class="row justify-content-md-center">
+              <div class="col-lg-3 col-md-6 col-sm-12">
+                <img src="https://www.titan.co.in/wps/wcm/connect/titanrt/7330d0b1-9c28-424b-a1f5-ddcf4810deb9/767x695_Home_Sqr_talk.jpg?MOD=AJPERES&CACHEID=ROOTWORKSPACE.Z18_90IA1H80OGR2D068O7K5LN3O26-7330d0b1-9c28-424b-a1f5-ddcf4810deb9-oipvTs7" alt="skydwellers"  class="trendinrolex">
+                <p>SKY-DWELLER</p>
+              </div>
+              <div class="col-lg-3 col-md-6 col-sm-12">
+                <img src="https://www.titan.co.in/wps/wcm/connect/titanrt/31df8793-3713-4e9a-b414-efb7f63917e1/767x695_xylys.jpg?MOD=AJPERES&CACHEID=ROOTWORKSPACE.Z18_90IA1H80OGR2D068O7K5LN3O26-31df8793-3713-4e9a-b414-efb7f63917e1-oipvTs7" alt="skydwellers" class="trendinrolex">
+                <p>SKY-DWELLER</p>
+              </div>
+              <div class="col-lg-3 col-md-6 col-sm-12">
+                <img src="https://www.titan.co.in/wps/wcm/connect/titanrt/c4dd2176-3f52-4d15-a908-7f8ccf287e0c/767x695_hp.jpg?MOD=AJPERES&CACHEID=ROOTWORKSPACE.Z18_90IA1H80OGR2D068O7K5LN3O26-c4dd2176-3f52-4d15-a908-7f8ccf287e0c-oipvTs7" alt="skydwellers" class="trendinrolex">
+                <p>SKY-DWELLER</p>
+              </div>
+              <div class="col-lg-3 col-md-6 col-sm-12">
+                <img src="https://www.titan.co.in/wps/wcm/connect/titanrt/afdbd5bc-d69d-4339-ac1e-5dacc7f02707/767x695_reflextunes.jpg?MOD=AJPERES&CACHEID=ROOTWORKSPACE.Z18_90IA1H80OGR2D068O7K5LN3O26-afdbd5bc-d69d-4339-ac1e-5dacc7f02707-oipvTs7" alt="skydwellers" class="trendinrolex">
+                <p>SKY-DWELLER</p>
+              </div>
+            </div>
+            </div>
+            <div style="background-color: #181818;width: 100%;height: 300px;position: relative;"></div>
+        </section>
+        <section style="margin-top: 7%;">
+          <h1 align="center" style="font-family: 'Raleway', sans-serif;">Trending in TimeWel</h1>
+          <div class="container text-center" style="position: absolute;z-index: 1;margin-left: 6%;">
+            <div class="row justify-content-md-center">
+              <div class="col-lg-3 col-md-6 col-sm-12">
+                <img src="https://timewel.com/wp-content/uploads/2022/04/Timewel_7.jpg" alt="skydwellers"  class="trendinrolex">
+                <p>SKY-DWELLER</p>
+              </div>
+              <div class="col-lg-3 col-md-6 col-sm-12">
+                <img src="https://timewel.com/wp-content/uploads/2022/04/Timewel_8.jpg" alt="skydwellers" class="trendinrolex">
+                <p>SKY-DWELLER</p>
+              </div>
+              <div class="col-lg-3 col-md-6 col-sm-12">
+                <img src="https://timewel.com/wp-content/uploads/2022/04/Timewel_9-1.jpg" alt="skydwellers" class="trendinrolex">
+                <p>SKY-DWELLER</p>
+              </div>
+              <div class="col-lg-3 col-md-6 col-sm-12">
+                <img src="https://timewel.com/wp-content/uploads/2022/04/Timewel.jpg" alt="skydwellers" class="trendinrolex">
+                <p>SKY-DWELLER</p>
+              </div>
+            </div>
+            </div>
+            <div style="background-color: #181818;width: 100%;height: 300px;position: relative;"></div>
+        </section>
+        <section style="padding: 5% 10%;">
+          <h1 align="center" style="font-family: 'Raleway', sans-serif;">Top Sellers</h1>
+          <div class="row">
+          <div class="card col-lg-3 col-md-6 col-sm-12 viewed">
+            <a href="extra/sel1"><img src="https://staticimg.titan.co.in/Fastrack/Catalog/3286KM01_1.jpg?impolicy=pqmed&imwidth=320" alt="image" class="card-img-top"></a>
+            <div class="card-body">
+              <div class="card-title">
+                <h5 style="color:black">REFLEX PLAY PLUS- SMART WATCH WITH BLUE STRAP, AMOLED DISPLAY, PERIOD TRACKER, & BT CALLING</h1>
+              </div>
+              <div class="card-text"><p>6,995/-</p></div>
+              <button style="background-color:black;color: white;padding: 10px 85px;border:none;border-radius:5px;" class="add-cart">add to cart</button>
+
+            </div>
+          </div>
+          <div class="card col-lg-3 col-md-6 col-sm-12 viewed">
+            <a href="extra/sel2"><img src="https://staticimg.titan.co.in/Fastrack/Catalog/3247SL01_1.jpg?impolicy=pqmed&imwidth=320" alt="image" class="card-img-top"></a>
+            <div class="card-body">
+              <div class="card-title">
+                <h5 style="color:black">REFLEX PLAY PLUS- SMART WATCH WITH BLUE STRAP, AMOLED DISPLAY, PERIOD TRACKER, & BT CALLING</h1>
+              </div>
+              <div class="card-text"><p>6,995/-</p></div>
+              <button style="background-color:black;color: white;padding: 10px 85px;border:none;border-radius:5px;" class="add-cart">add to cart</button>
+
+            </div>
+          </div>
+          <div class="card col-lg-3 col-md-6 col-sm-12 viewed">
+           <a href="extra/sel3"> <img src="https://staticimg.titan.co.in/Fastrack/Catalog/38072AP01_1.jpg?impolicy=pqmed&imwidth=320" alt="image" class="card-img-top"></a>
+            <div class="card-body">
+              <div class="card-title">
+                <h5 style="color:black">REFLEX PLAY PLUS- SMART WATCH WITH BLUE STRAP, AMOLED DISPLAY, PERIOD TRACKER, & BT CALLING</h1>
+              </div>
+              <div class="card-text"><p>6,995/-</p></div>
+              <button style="background-color:black;color: white;padding: 10px 85px;border:none;border-radius:5px;" class="add-cart">add to cart</button>
+
+            </div>
+          </div>
+          <div class="card col-lg-3 col-md-6 col-sm-12 viewed">
+            <a href="extra/sel4"><img src="https://staticimg.titan.co.in/Fastrack/Catalog/38074AP01_1.jpg?impolicy=pqmed&imwidth=320" alt="image" class="card-img-top"></a>
+            <div class="card-body">
+              <div class="card-title">
+                <h5 style="color:black">REFLEX PLAY PLUS- SMART WATCH WITH BLUE STRAP, AMOLED DISPLAY, PERIOD TRACKER, & BT CALLING</h1>
+              </div>
+              <div class="card-text"><p>6,995/-</p></div>
+              <button style="background-color:black;color: white;padding: 10px 85px;border:none;border-radius:5px;" class="add-cart">add to cart</button>
+
+            </div>
+          </div>
+          </div>
+        </section>
+        <section style="text-align: center;">
+          <h1 align="center" style="margin-bottom:15%;font-family: 'Raleway', sans-serif;">FEATURED COLLECTIONS</h1>
+          <div class="row" style="position: absolute;z-index:1;left:14%;top:6100px;color:white;">
+            <div class="col-lg-4 col-sm-12">
+              <img src="https://www.fastrack.in/wps/wcm/connect/fastrack/fa6e6aba-8cf6-47b2-aa0c-744955a1ec87/AllNighters.jpg?MOD=AJPERES&CACHEID=ROOTWORKSPACE.Z18_90IA1H80OGS700Q8OKN8NF0004-fa6e6aba-8cf6-47b2-aa0c-744955a1ec87-nvA7hNV" alt="feat" width="350px" height="350px"><br>
+              <h4 style="margin-top: 20px;margin-bottom: 0;">ALL NIGHTERS</h4><br>
+              <p>Slay the night away and rage-in with the <br>trendiest cillection of theseason for guy's</p>
+            </div>
+            <div class="col-lg-4 col-sm-12">
+              <img src="https://www.fastrack.in/wps/wcm/connect/fastrack/87a1dfd7-d02c-4c30-a49c-e972ad195600/1000x1000.jpg?MOD=AJPERES&CACHEID=ROOTWORKSPACE.Z18_90IA1H80OGS700Q8OKN8NF0004-87a1dfd7-d02c-4c30-a49c-e972ad195600-n-MzHXh" alt="feat" width="350px" height="350px"><br>
+              <h4 style="margin-top: 20px;margin-bottom: 0;">COCA COLA EDITION</h4><br>
+              <p>Slay the night away and rage-in with the <br>trendiest cillection of theseason for guy's</p>
+            </div>
+            <div class="col-lg-4 col-sm-12">
+              <img src="https://www.fastrack.in/wps/wcm/connect/fastrack/cdf686d2-1a27-4fb0-a8fc-a39f8d4ff446/Tees+Arcade.jpg?MOD=AJPERES&CACHEID=ROOTWORKSPACE.Z18_90IA1H80OGS700Q8OKN8NF0004-cdf686d2-1a27-4fb0-a8fc-a39f8d4ff446-np3p1lm" alt="feat" width="350px" height="350px"><br>
+              <h4 style="margin-top: 20px;margin-bottom: 0;">TEES ARCADE</h4><br>
+              <p>Slay the night away and rage-in with the <br>trendiest cillection of theseason for guy's</p>
+            </div>
+          </div>
+          <div style="width: 100%;height:320px;background-color:#181818;position: relative;"></div>
+        </section>
+        <section style="text-align:center">
+          <div style="background-color:#D6E4E5;width:100%;height:500px;">
+            <h1 style="padding-top: 5%;font-family: 'Raleway', sans-serif;">FIND A STORE NEAR YOU</h1>
+            <div style="padding-top: 2%;">
+            <div class="row">
+              <div class="col-lg-6">
+                <button type="button" style="background-color:black;color:white;padding: 10px 100px;position: relative;left:200px"><i class="fa-solid fa-location-dot"></i> Use your current</button>
+              </div>
+              <div class="col-lg-3">
+                <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+              </div>
+            </div>
+          </div>
+        <div>
+          <div class="row" style="background-color:black;margin-top: 50px;width: 100%;height: 120px;color: white;padding-top: 25px; padding-left: 50px;margin-left: 0;margin-right: 0;">
+          <div class="col-lg-4 col-sm-12" style="padding: 0;"><p><b>100% ORIGINAL</b><br>All products are original and go through<br>strict quality check.</p></div>
+          <div class="col-lg-4 col-sm-12" style="padding: 0;"><p><b>100% ORIGINAL</b><br>All products are original and go through<br>strict quality check.</p></div>
+          <div class="col-lg-4 col-sm-12" style="padding: 0;"><p><b>100% ORIGINAL</b><br>All products are original and go through<br>strict quality check.</p></div>
+      </div>
+      </div>
+      <p style="text-align:left;">TIMETRACK - ONLINE FASHION STORE<br>
+        <span style="font-size:12px;">We at Timetrack understand the Importance of your Fashion needs and bring up accessories that would complement your attire in every way. Fastrack is a one-stop fashion destination for you that gives you options to choose from a wide range of collectibles that covers Watches, Smartwatch, Bags, Leather Wallets, Leather Belts and much more. Our online shopping store is user-friendly and lets you find your desired fashion accessory in few clicks. With every purchase, you get encircle points that gets credited to your encircle card. You can redeem these encircle points for hefty discounts to buy fashion accessories online. Experience a seamless payment and delivery process with us. We accept payments through Credit, Debit and Net Banking.</span></p>
+        </section>
+        <section>
+          <div style="background-color: black;width:100%;height:470px;line-height: 3;padding-top: 30px;">
+          <div class="row" style="padding-left:60px;padding-right:60px">
+            <div class="col-lg-2 col-sm-12">
+              <h6>CUSTOMER SERVICE</h6>
+              <a href="#" class="links">Payment Options</a><br>
+              <a href="#" class="links">Track Order</a><br>
+              <a href="#" class="links">Find a Store</a><br>
+              <a href="#" class="links">Encircle program</a><br>
+            </div>
+            <div class="col-lg-2 col-sm-12">
+              <h6>Contact Us</h6>
+              <a href="#" class="links">7989388254</a><br>
+              <a href="#" class="links">sriramkarthikakula6@gmail.com</a><br>
+              <a href="#" class="links">Frequently asked quetions</a><br>
+            </div>
+            <div class="col-lg-2 col-sm-12">
+              <h6>POLICIES</h6>
+              <a href="#" class="links">Returns & Exchanges</a><br>
+              <a href="#" class="links">Cancellation</a><br>
+              <a href="#" class="links">Shipping</a><br>
+              <a href="#" class="links">Warranty Policies</a><br>
+              <a href="#" class="links">Delivery Information</a><br>
+            </div>
+            <div class="col-lg-2 col-sm-12">
+              <h6>ABOUT TIMETRACK</h6>
+              <a href="#" class="links">About Us</a><br>
+              <a href="#" class="links">Careers</a><br>
+            </div>
+            <div class="col-lg-4 col-sm-12">
+              <h6 style="margin-bottom: 20px;">DOWNLOAD WORLD OF TITAN APP</h6>
+              <div style="margin-left: 30px;">
+                <button style="background-color: black;border-color:gray;color:white;border-radius:5px;border:1px solid;margin-right: 10px;">
+                  <i class="fa-brands fa-apple" style="font-size:35px;margin-top: 10px;"></i> <b><p style="display:inline;margin-bottom:25px;">From App Store</p></b>
+                </button>
+                <button style="background-color: black;border-color:gray;color:white;border-radius:5px;border:1px solid;display: inline;">
+                  <i class="fa-brands fa-google-play" style="font-size:35px;margin-top: 10px;"></i> <b><p style="display:inline;margin-bottom:25px;">From PlayStore</p></b>
+                </button>
+              </div>
+              <div>
+                <h6 style="margin-top: 30px;">FOLLOW US ON</h6>
+                <div style="margin-left: 30px;">
+                  <a href="https://www.instagram.com/sri_ram_karthik_akula/"><i class="fa-brands fa-instagram icons" style="font-size: 30px;margin-right: 20px;"></i></a>
+                  <i class="fa-brands fa-facebook icons" style="font-size: 30px;margin-right: 20px;"></i>
+                  <i class="fa-brands fa-linkedin icons" style="font-size: 30px;margin-right: 20px;"></i>
+                  <i class="fa-solid fa-envelope icons" style="font-size: 30px;;margin-right: 20px;"></i>
+                </div>
+              </div>
+              <h6 style="margin-top: 10px;">Need Help?</h6>
+              <p style="margin-top: 10px;color: white;margin-bottom: 0;"><a href="#" style="color:white;">Click Here</a> to chat with us on <i class="fa-brands fa-whatsapp" style="font-size:30px;color: rgb(21, 183, 21);"></i></p>
+              <div>
+                <p style="display:inline;color: gray;margin-left: 60px;font-size: 10px;">Tearms & Conditions</p>
+                <p style="display:inline;color: gray;font-size: 12px;">Privacy Policy</p>
+              </div>
+              
+            </div>
+          </div>
+          <hr style="color:white;border-width:3px;" size="10">
+          <div style="color:gray;margin-top: 0;margin-left: 15%;">
+            <i class="fa-brands fa-cc-visa" style="font-size:35px;margin-right: 50px;"></i>
+            <i class="fa-brands fa-cc-mastercard" style="font-size:35px;margin-right: 50px;"></i>
+            <i class="fa-brands fa-paypal" style="font-size:35px;margin-right: 50px;"></i>
+            <p style="margin-left:550px;display:inline;">© 2022 TimeTrack Company Limited. All Rights Reserved.</p>
+          </div>
+          </div>
+        </section>
+          
+        </section>
+        <script>
+            var len = document.querySelectorAll(".add-cart").length;
+            for(var i=0;i<len;i++){
+                    document.querySelectorAll(".add-cart")[i].addEventListener("click",add);
+                }
+            function onloadcount(){
+            var productnumber = localStorage.getItem("add");
+            if(productnumber){
+                document.querySelector(".addto").textContent=productnumber;
+                }
+            }
+            function add(){
+                var productnumber = localStorage.getItem("add");
+                productnumber = parseInt(productnumber)
+                if(productnumber){
+                    localStorage.setItem("add",productnumber+1);
+                    document.querySelector(".addto").textContent=productnumber+1;
+                }
+            else{
+                    localStorage.setItem("add",1);
+                    document.querySelector(".addto").textContent=1;
+                }
+            }
+            onloadcount();
+            </script>
+      </body>
+</html>

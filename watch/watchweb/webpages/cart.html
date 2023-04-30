@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Timetrack.Co</title>
+        <!--CSS only-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <!--JavaScript Bundle with Popper-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-md navbar-light bg-#2C3333 navback">
+            <a class="navbar-brand" href="/" style="color: black;margin-left: 3;font-size: 1rem;font-family: 'Kolker Brush', cursive;"><img src="T.png" alt="icon" height="50px" style="margin-left:40%;"> </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto" style="width:520px;">
+                    {% if user.is_authenticated %}
+                    <li class = "nav-item" style="margin-right: 10px;"><a class="nav-link" href="/"><b>Hello {{user.username}}!</b></a></li>
+                    <li class = "nav-item" style="margin-right: 10px;"><a class="nav-link" href="#"><b><i class="fa-solid fa-magnifying-glass"></i> Search</b></a></li>
+                    <li class = "nav-item"><a class="nav-link" href="cart" ><b><i class="fa-regular fa-heart"></i> Your selection (<span class="addto">0</span>)</b></a></li><br>
+                    <li class = "nav-item" style="margin-right: 10px;"><a class="nav-link" href="accounts/logout"><b>Log Out</b></a></li>
+                    {% else %}
+                    <li class = "nav-item" style="margin-right: 10px;"><a class="nav-link" href="accounts/logins"><b><i class="fa-solid fa-right-to-bracket"></i> login</b></a></li>
+                    <li class = "nav-item" style="margin-right: 10px;"><a class="nav-link" href="accounts/signup"><b><i class="fa-regular fa-id-card"></i> Sign up</b></a></li>
+                    <li class = "nav-item" style="margin-right: 10px;"><a class="nav-link" href="#"><b><i class="fa-solid fa-magnifying-glass"></i> Search</b></a></li>
+                    <li class = "nav-item"><a class="nav-link" href="cart" ><b><i class="fa-regular fa-heart"></i> Your selection (<span class="addto">0</span>)</b></a></li><br>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+        <br><br><br>
+        <h1 align="center"><i class="fa-solid fa-cart-shopping"></i> CART (<span class="cartindis">0</span>)</h1><br><br><br>
+        <section>
+            <div style="display: flex;flex-direction: row;padding-left: 13%;padding-right: 13%;">
+                <b><p style="margin-right: 430px;margin-bottom: 0;">ITEMS(S)</p></b>
+                <b><p style="margin-right: 100px;margin-bottom: 0;">QUANTITY</p></b>
+                <b><p style="margin-right: 100px;margin-bottom: 0;">TOTAL</p></b>
+                <b><p style="margin-right: 100px;margin-bottom: 0;">ORDER SUMMARY</p></b>
+            </div>
+            <hr style="width: 90%;margin:auto;"><br>
+            <div style="display: flex;flex-direction: row;padding-left: 13%;padding-right: 13%;" class="cartin">
+                <a href="extra/trendfast1"><img src="https://staticimg.titan.co.in/Fastrack/Catalog/38077AP04_1.jpg?pView=listing" width="160px" height="160px" style="margin-right: 15px;"></a>
+                <b><p style="margin-right: 95px;">REFLEX PLAY PLUS- SMART WATCH<br>WITH AQUA BLUE STRAP, AMOLED<br> DISPLAY, PERIOD TRACKER, & BT<br> CALLING<br><span style="font-size: 15px;">38077AP04</span><br>Rs.6995 <span style="color: gray;"><s>Rs. 9995</s></span> <span style="color: red;">(30% off)</span></p></b>
+                <b><p style="margin-right: 125px;">1</p></b>
+                <b><p style="margin-right: 85px;">Rs. 6995</p></b>
+                <p>Order Total (1 Items)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Rs.9995</b><br>Shipping&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>FREE</b><br>Discount&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><span style="color: red;">Rs, -3000</span></b><br>YOU PAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Rs. 6995</b><br><b>INCLUSIVE OF ALL TAXES*</b><br><b><span style="color: red;"> SAVE Rs. -3000</span></b><br><br>
+                    <a href="payment"><button style="padding: 10px 20px;background-color: black;color: white;">PROCEED TO CHECKOUT</button></a><br><br>
+                    <a href="/" style="color: black;">Continue Shopping</a></p><br>
+            </div>
+            <hr style="width: 77%;margin:auto;"><br>
+            <div style="display: flex;flex-direction: row;padding-left: 13%;padding-right: 13%;" class="cartin">
+                <a href="extra/rec1"><img src="https://staticimg.titan.co.in/Titan/Catalog/1805NL01_2.jpg?impolicy=pqmed&imwidth=640" width="160px" height="160px" style="margin-right: 15px;"></a>
+                <b><p style="margin-right: 95px;">REFLEX PLAY PLUS- SMART WATCH<br>WITH AQUA BLUE STRAP, AMOLED<br> DISPLAY, PERIOD TRACKER, & BT<br> CALLING<br><span style="font-size: 15px;">38077AP04</span><br>Rs.6995 <span style="color: gray;"><s>Rs. 9995</s></span> <span style="color: red;">(30% off)</span></p></b>
+                <b><p style="margin-right: 125px;">1</p></b>
+                <b><p style="margin-right: 85px;">Rs. 6995</p></b>
+                <p>Order Total (1 Items)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Rs.9995</b><br>Shipping&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>FREE</b><br>Discount&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><span style="color: red;">Rs, -3000</span></b><br>YOU PAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Rs. 6995</b><br><b>INCLUSIVE OF ALL TAXES*</b><br><b><span style="color: red;"> SAVE Rs. -3000</span></b><br><br>
+                    <a href="payment"><button style="padding: 10px 20px;background-color: black;color: white;">PROCEED TO CHECKOUT</button></a><br><br>
+                    <a href="/" style="color: black;">Continue Shopping</a></p><br>
+            </div>
+            <hr style="width: 77%;margin:auto;"><br>
+            <div style="display: flex;flex-direction: row;padding-left: 13%;padding-right: 13%;" class="cartin">
+                <a href="extra/rec4"><img src="https://content.rolex.com/dam/watches/family-pages/day-date/2022/roller/classic-watches-day-date-2022-roller-day-date-01.jpg?imwidth=2880" width="160px" height="160px" style="margin-right: 15px;"></a>
+                <b><p style="margin-right: 95px;">REFLEX PLAY PLUS- SMART WATCH<br>WITH AQUA BLUE STRAP, AMOLED<br> DISPLAY, PERIOD TRACKER, & BT<br> CALLING<br><span style="font-size: 15px;">38077AP04</span><br>Rs.6995 <span style="color: gray;"><s>Rs. 9995</s></span> <span style="color: red;">(30% off)</span></p></b>
+                <b><p style="margin-right: 125px;">1</p></b>
+                <b><p style="margin-right: 85px;">Rs. 6995</p></b>
+                <p>Order Total (1 Items)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Rs.9995</b><br>Shipping&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>FREE</b><br>Discount&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><span style="color: red;">Rs, -3000</span></b><br>YOU PAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Rs. 6995</b><br><b>INCLUSIVE OF ALL TAXES*</b><br><b><span style="color: red;"> SAVE Rs. -3000</span></b><br><br>
+                    <a href="payment"><button style="padding: 10px 20px;background-color: black;color: white;">PROCEED TO CHECKOUT</button></a><br><br>
+                    <a href="/" style="color: black;">Continue Shopping</a></p><br>
+            </div>
+            <div style="display: flex;flex-direction: row;padding-left: 13%;padding-right: 13%;" class="cartin">
+                <a href="extra/rec4"><img src="https://content.rolex.com/dam/2022-11/upright-bba-with-shadow/m226658-0001.png?imwidth=420" width="160px" height="160px" style="margin-right: 15px;"></a>
+                <b><p style="margin-right: 95px;">REFLEX PLAY PLUS- SMART WATCH<br>WITH AQUA BLUE STRAP, AMOLED<br> DISPLAY, PERIOD TRACKER, & BT<br> CALLING<br><span style="font-size: 15px;">38077AP04</span><br>Rs.6995 <span style="color: gray;"><s>Rs. 9995</s></span> <span style="color: red;">(30% off)</span></p></b>
+                <b><p style="margin-right: 125px;">1</p></b>
+                <b><p style="margin-right: 85px;">Rs. 6995</p></b>
+                <p>Order Total (1 Items)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Rs.9995</b><br>Shipping&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>FREE</b><br>Discount&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><span style="color: red;">Rs, -3000</span></b><br>YOU PAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Rs. 6995</b><br><b>INCLUSIVE OF ALL TAXES*</b><br><b><span style="color: red;"> SAVE Rs. -3000</span></b><br><br>
+                    <a href="payment"><button style="padding: 10px 20px;background-color: black;color: white;">PROCEED TO CHECKOUT</button></a><br><br>
+                    <a href="/" style="color: black;">Continue Shopping</a></p><br>
+            </div>
+        </section>
+        <script>
+            var x = document.querySelectorAll(".cartin").length;
+            document.querySelector(".cartindis").textContent=x;
+        </script>
+    </body>
+</html>
