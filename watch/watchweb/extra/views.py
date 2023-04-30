@@ -1,0 +1,43 @@
+from django.shortcuts import render
+
+# Create your views here.
+def cart(request):
+    return render(request,'cart.html')
+def fastrack(request):
+    return render(request,'fastrack.html')
+def titan(request):
+    return render(request,'titan.html')
+def timewel(request):
+    return render(request,'timewel.html')
+def trendintt11(request):
+    return render(request,'trendintt11.html')
+def fastopac(request):
+    return render(request,'fastopac.html')
+def blackmetal(request):
+    return render(request,'blackmetal.html')
+def yachtmaster(request):
+    return render(request,'yachtmaster.html')
+def rec1(request):
+    return render(request,'rec1.html')
+def rec2(request):
+    return render(request,'rec2.html')
+def rec3(request):
+    return render(request,'rec3.html')
+def rec4(request):
+    return render(request,'rec4.html')
+def rolextrend1(request):
+    return render(request,'rolextrend1.html')
+def trendfast1(request):
+    return render(request,'trendfast1.html')
+def trendfast2(request):
+    return render(request,'trendfast2.html')
+def sel1(request):
+    return render(request,'sel1.html')
+def sel2(request):
+    return render(request,'sel2.html')
+def sel3(request):
+    return render(request,'sel3.html')
+def sel4(request):
+    return render(request,'sel4.html')
+def payment(request):
+    return render(request,'payment.html')
